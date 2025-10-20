@@ -1,3 +1,13 @@
+    //#region funcion para verificar un numero valido de manera estricta (para reutilizar)
+        function esNumeroValido(verifNum) {
+            return typeof verifNum === "number" && Number.isFinite(verifNum);
+        }
+        console.log(esNumeroValido(5))
+        console.log(esNumeroValido("5"))
+    //#endregion
+  
+    
+
     // #region tarea 1: verificar numero + / - / 0
     
         console.log("========================= tarea 1: verificar numero + / - / 0 =========================")    
@@ -10,7 +20,7 @@
             // convertir la caden de texto recivida a numero
             let numero = parseFloat(recivido);
             // Comprar que el valor recivido es un numero: si lo es proceder, sino lo es: mesaje de Error.
-             if (typeof numero === "number" && Number.isFinite(numero)) {
+             if (esNumeroValido(numero)) {
                 //comprobar si el numero es 0, si no lo es comprobar si es negativo, si tampoco lo es; será positivo.
                 if (numero === 0){
                 console.log(`El numero introducido0 es cero.`)
@@ -39,7 +49,7 @@
             // convertir la caden de texto recivida a numero
             let edad = parseFloat(edadDada);
             // Comprar que el valor recivido es un numero: si lo es proceder, sino lo es: mesaje de Error.
-             if (typeof edad === "number" && Number.isFinite(edad)) {
+             if (esNumeroValido(edad)) {
                 if (edad >= 18) { // compara que la edad sea mayor o igual de 18 o no, y mostrar mensajes
                     console.log("Puede votar")
                 } else {
@@ -65,7 +75,7 @@
         function mayorDeDos(num1, num2) {
 
             // Comprar que el valor recivido es un numero: si lo es proceder, sino lo es: mesaje de Error.
-             if (typeof num1 === "number" && Number.isFinite(num1) && typeof num2 === "number" && Number.isFinite(num2)) {
+             if (esNumeroValido(num1) && esNumeroValido(num2)) {
                 if (num1 > num2) { //comprobar que num1 sea mayor que num2, si lo es mostrar el mensaje, si no...
                     console.log(`El numero ${num1} es mayor`)
                 } else if (num1 < num2) { // comprobar que num2, sea el mayor,si tampoco lo es... 
@@ -91,7 +101,7 @@
         console.log("================ tarea 4: Determinar si un número es divisible entre 5 ================")
 
         function esDivisibleEntreCinco(numero) {
-            if (typeof numero === "number" && Number.isFinite(numero)) { // comprbar que sea un numero valido
+            if (esNumeroValido(numero)) { // comprbar que sea un numero valido
                 if (numero % 5 === 0) { //utilizar el operador % para comprobar si hay resto
                     console.log(`El numero ${numero} es divisible entre 5`) // si el resto es cero es diisible entre 5, sino
                 } else {  
@@ -107,8 +117,7 @@
         esDivisibleEntreCinco(35);
         esDivisibleEntreCinco(4);
         esDivisibleEntreCinco("quince");
-
-        // #endregion 
+    // #endregion 
 
 
 
@@ -117,7 +126,7 @@
 
         function clasificarNota(nota) {
             // combrobar que el numero introducido sea valido
-            if (typeof nota === "number" && Number.isFinite(nota)) {
+            if (esNumeroValido(nota)) {
                 // comprobar que la nota este entre 0 y 100
                 if (nota >= 0 || nota <=100) {
                     if (nota >= 90 ) { // usar los operadores para determinar la calificación en base a la nota
@@ -136,10 +145,9 @@
                 console.log("Error: Por favor ingresar un valor numerico valido")
             }           
         }
-
         clasificarNota(56);
         clasificarNota(78);
         clasificarNota(99);
         clasificarNota(44);
         clasificarNota("treinta");
-        // #endregion
+    // #endregion
